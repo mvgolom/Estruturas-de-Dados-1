@@ -38,10 +38,12 @@ void push(Stack *p, int e){
 }
 
 void pop(Stack *p){
-    Node *atual = p->top;
-    p->top = p->top->anterior;
-    p->tam--;
-    free(atual);
+    if(p->tam != 0){
+        Node *atual = p->top;
+        p->top = p->top->anterior;
+        p->tam--;
+        free(atual);
+    }
 }
 
 int isEmptyStack(Stack *p){
